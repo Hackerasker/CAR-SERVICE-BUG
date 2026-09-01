@@ -77,4 +77,4 @@ def print_report(fleet: list[dict]) -> None:
     # Partner garage in England wants distance in miles (since 2015).
     miles = fleet_utils.km_to_miles(total_km)
     print(f"Fleet distance: {fleet_utils.format_number(miles)} miles")
-    flush_log(get_setting(settings, "log_file", "km_wachter.log"))
+    flush_log(get_setting(settings, "log_file", "km_wachter.log"))n
