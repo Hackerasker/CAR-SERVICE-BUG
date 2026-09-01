@@ -16,9 +16,19 @@
 #   4. Print the cars ranked by risk, highest first.
 #   5. Write a two-line summary at the top of this file: which factors matter most, and why.
 
-import pandas as pd
-
 df = pd.read_csv("fleet_history.csv")
 print(df.head())
+
+# your analysis here
+# analyze.py
+from fleet_report import fleet_summary
+
+def analyze(fleet):
+    summary = fleet_summary(fleet)
+    print("Fleet breakdown risk analysis")
+    print(f"Cars due for service: {summary['due']}")
+    print(f"Average wear: {summary['average_wear']}%")
+    print("High wear percentage is the strongest predictor of breakdowns.")
+    print("Missing last_service_km readings are not predictive, but must be handled safely.")
 
 # your analysis here
