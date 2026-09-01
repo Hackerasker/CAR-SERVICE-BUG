@@ -1,8 +1,6 @@
 # test_fleet_report.py
 from fleet_report import fleet_summary
 
-from fleet_report import fleet_summary
-
 SAMPLE = [
     {"id": "VOS-4471", "odometer": 14900, "last_service_km": 0},
     {"id": "VOS-2210", "odometer": 48400, "last_service_km": 45000},
@@ -19,3 +17,8 @@ def test_summary_handles_missing_last_service_km():
     fleet = [
         {"id": "VOS-7788", "odometer": 12000},  # missing last_service_km
         {"id": "VOS-4471", "odometer": 14900, "last_service_km": 0},
+    ]
+    summary = fleet_summary(fleet)
+    assert summary["count"] == 2
+    assert "average_wear" in summary
+    assert summary["average_wear"] >= 0.0
